@@ -28,6 +28,9 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY nginx-app.conf /etc/nginx/sites-available/default
 COPY supervisor-app.conf /etc/supervisor/conf.d/
 
+COPY wait-for-it.sh /
+RUN chmod +x ./wait-for-it.sh
+
 EXPOSE 80
 
 

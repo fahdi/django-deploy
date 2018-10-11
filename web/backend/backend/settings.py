@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'registrations',
         'USER': 'pieas',
         'PASSWORD': 'password',
-        'HOST': 'postgres',
+        'HOST': 'db',
         'PORT': 5432
     }
 }

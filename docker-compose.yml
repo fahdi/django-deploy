@@ -9,17 +9,17 @@ services:
     image: webapp
     ports:
       - "8080:80"
-    depends_on:
-      - db
   migrations:
     image: webapp
-    command: python3 /home/docker/code/manage.py migrate
+    command: ./wait-for-it.sh db:5432 -- python3 /home/docker/code/manage.py migrate
     depends_on:
       - db
       - web
   run:
     image: webapp
     command: supervisord -n
+    ports:
+      - "8080:80"
     depends_on:
       - migrations
       - db
